@@ -1,0 +1,55 @@
+/*.marker-cluster {
+    width: 64px;
+    height: 64px;
+    border-radius: 60px;
+    background: #FFED00;
+    border: 2px solid #FFED00;
+    padding: 4px;
+    opacity: 0.9!important;
+    margin-left: 0px;
+    margin-top: 0px;
+    box-sizing: content-box;
+}
+
+.marker-cluster div{
+    font-size: 14px;
+    width: 28px;
+    height:28px;
+    margin-left: 0px;
+    margin-top: 0px;
+    border-radius: 50%;
+
+    line-height: 28px;
+    background: #343434;
+    color: #fff;
+}*/
+
+.marker-cluster {
+    background: #FFED00;
+    border: 2px solid #FFED00;
+    margin-left: 0px;
+    margin-top: 0px;
+    box-sizing: content-box;
+}
+
+.marker-cluster div{
+    font-size: 14px;
+    background: #343434;
+    color: #fff;
+}
+
+.leaflet-popup-content img{
+    display: block;
+    width: auto;
+    height: auto;
+}
+
+#hub-carto-map {
+    border-color: black;
+    border: 1px solid;
+}
+
+#footer img{
+    margin: 20px;
+    height: 100px;
+}

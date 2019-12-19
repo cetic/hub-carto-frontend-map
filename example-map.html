@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="css/hub-carto-map.css"><!-- include file hub-carto-map.css before loading body -->
+</head>
+<body>
+<h1><a>Exemple d'intégration de carte</a></h1>
+
+<div id="hub-carto-outer"></div>
+<div id="footer" class="center">
+    <img src="img/hub-C_logo.png">
+    <img src="img/logo_FEDER wallonie.svg">
+    <img src="img/DigitalWallonia.png">
+    <div>
+        <br/>Pointeurs utilisant un design provenant de <a href="https://www.wiki.lesfabriquesduponant.net/index.php?title=Fichier:ICONO_FABLAB_FULL.svg" target="_blank">Laura Pandelle (license CC-By-Nc-Sa)</a>.
+    </div>
+</div>
+
+<script src="https://unpkg.com/d3@5.9.2/dist/d3.js"></script>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+<script type="text/javascript">
+    // Parameters related to app-graph.js
+    //
+    // address for retrieving map data json from CETIC backend is https://carto-hub-creatif.cetic.be/map-data.json
+    // // var data_addr = "https://carto-hub-creatif.cetic.be/map-data.json"
+
+    // you need to pass some parameters to select which data you want.
+    // here is a list of possible parameters:
+    //  - You need to add at least one of these parameters (you can add more than one)
+    //     - var request_hub_creatif = true; --> show elements related to hub_creatif
+    var request_hub_creatif = true;
+    //     - var request_living_lab = true; --> show elements related to living_lab
+    // var request_living_lab = true;
+    //     - var request_fab_lab = true; --> show elements related to fab_lab
+    var request_fab_lab = true;
+    //     - var request_espace_coworking = true; --> show elements related to espace_coworking
+    // var request_espace_coworking = true;
+    //     - var request_creative_wallonia = true; --> show elements related to creative_wallonia
+    // var request_creative_wallonia = true;
+    //  - By default, only elements validated by digital wallonia will be included.
+    //    If you want to include also elements NOT validated by digital wallonia, you can add this parameter
+    //     - var filter_not_only_digital_wallonia = true;
+    //var filter_not_only_digital_wallonia = true;
+
+
+    // You can choose to not show timestamp
+    var show_timestamp = false;
+
+    // You need to create a div in which the map will be included and specify its id
+    var div_outer_map = d3.select("#hub-carto-outer");
+
+    // You can customize some size parameters of the map:
+    var width = 1000;
+    var height = 800;
+    var margin = 5;
+
+</script>
+
+<script type="text/javascript">
+    // Here you can customize pointers shown on map
+    var pointerIcon = L.icon({
+        iconUrl: "img/marker_makerspace_maker.svg",
+        iconSize: [30, 40],
+        iconAnchor: [15, 40],
+        popupAnchor: [0, 0]
+    });
+
+    var hubCreatifIcon = L.icon({
+        iconUrl: "img/marker_hubs_innovator.svg",
+        iconSize: [30, 35],
+        iconAnchor: [15, 35],
+        popupAnchor: [0, 0]
+    });
+
+    var livingLabIcon = L.icon({
+        iconUrl: "img/marker_livinglab_personnalfab.svg",
+        iconSize: [30, 35],
+        iconAnchor: [15, 35],
+        popupAnchor: [0, 0]
+    });
+
+    var fabLabIcon = L.icon({
+        iconUrl: "img/marker_fablabs_3dprinting.svg",
+        iconSize: [30, 35],
+        iconAnchor: [15, 35],
+        popupAnchor: [0, 0]
+    });
+
+    var coworkingIcon = L.icon({
+        iconUrl: "img/marker_coworkings_localdevelopment.svg",
+        iconSize: [30, 35],
+        iconAnchor: [15, 35],
+        popupAnchor: [0, 0]
+    });
+
+    var creativeWalloniaIcon = L.icon({
+        iconUrl: "img/marker_creativewallonia_energy.svg",
+        iconSize: [30, 35],
+        iconAnchor: [15, 35],
+        popupAnchor: [0, 0]
+    });
+</script>
+<script src="js/carto-popup.js"></script> <!-- include file carto-popup.js at end of html file -->
+<script src="js/app-map.js"></script> <!-- include file app-map.js at end of html file -->
+</body>
+</html>
